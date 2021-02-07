@@ -23,4 +23,14 @@
             DROP TABLE user;
         </rollback>
     </changeSet>
+    <changeSet id="3" author="sha">
+        <sql>
+            INSERT INTO user (username, password, name, role) VALUES('user1', '$2y$12$BVXmljAJyV8nvdS5vMVzcuzg0TC4y1qs7dRWnwvCeWD16tkyuZ48a', 'first user','USER');
+            INSERT INTO user (username, password, name, role) VALUES('user2', '$2y$12$BVXmljAJyV8nvdS5vMVzcuzg0TC4y1qs7dRWnwvCeWD16tkyuZ48a', 'second user', 'USER');
+            INSERT INTO user (username, password, name, role) VALUES('user3', '$2y$12$BVXmljAJyV8nvdS5vMVzcuzg0TC4y1qs7dRWnwvCeWD16tkyuZ48a', 'third user', 'USER');
+        </sql>
+        <rollback>
+            TRUNCATE TABLE post;
+        </rollback>
+    </changeSet>
 </databaseChangeLog>
